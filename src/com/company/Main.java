@@ -10,9 +10,6 @@ import java.util.Random;
 
 public class Main {
 
-    public static final int kvadratsNumber = 10;
-    public static final int right_kvadratsNumber = 20;
-
     public static void main(String[] args) throws IOException {
         Random random = new Random();
         final int numbersKvadrats = 5;
@@ -32,19 +29,5 @@ public class Main {
         System.out.println(rightkvadrats);
     }
 
-//    public void createKvadrats(Kvadrat[] kvadrats)
-//    {
-//        Random random = new Random();
-//        for (int i = 0; i < kvadratsNumber; i++) {
-//            kvadrats[i] = new Kvadrat(random.nextInt(10), random.nextInt(10), random.nextInt(10), random.nextInt(10), random.nextInt(10), random.nextInt(10), random.nextInt(10), random.nextInt(10));
-//        }
-//    }
-//
-//    public void outputKvadrats(Kvadrat[] kvadrats)
-//    {
-//        for (int i = 0; i<kvadratsNumber; i++){
-//            System.out.println(kvadrats[i]);
-//        }
-//    }
 
 }
