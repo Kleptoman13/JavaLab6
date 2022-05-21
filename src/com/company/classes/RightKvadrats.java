@@ -1,48 +1,40 @@
 package com.company.classes;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
 public class RightKvadrats {
-    private RightKvadrat[] right_kvadrats;
+    public ArrayList<RightKvadrat> list;
     private double sredSquar;
 
-    public RightKvadrats(final int kvadratsNumber)
+    public RightKvadrats()
     {
-        this.right_kvadrats = new RightKvadrat[kvadratsNumber];
-        addRightKvadrat();
-        CalculatingSredSquar(kvadratsNumber);
+        list = new ArrayList<>();
     }
 
-    public RightKvadrat[] addRightKvadrat()
+    public void add(int x1, int y1, int x2, int y2)
     {
-
-        Random random = new Random();
-        for (int i = 0; i < right_kvadrats.length; i++) {
-            right_kvadrats[i] = new RightKvadrat(random.nextInt(10), random.nextInt(10), random.nextInt(10), random.nextInt(10));
-        }
-        return right_kvadrats;
+        this.list.add(new RightKvadrat(x1, y1, x2, y2));
     }
 
-    public void CalculatingSredSquar(final int kvadratsNumber)
+    public ArrayList getKvadrats()
+    {
+        return this.list;
+    }
+
+    public double CalculatingSredSquar()
     {
         double sum = 0;
-        for (RightKvadrat right_kvadrat : right_kvadrats)
-        {
-            sum += right_kvadrat.getRightSquar();
+        for (int i = 0; i < list.size(); i++) {
+            sum += this.list.get(i).getRightSquar();
         }
-        sredSquar = sum / kvadratsNumber;
+        return sredSquar = sum / list.size();
     }
 
     public String toString() {
-        String result = "Right Kvadrats: " + System.lineSeparator();
-
-        for (RightKvadrat right_kvadrat : right_kvadrats) {
-
-            result += right_kvadrat + System.lineSeparator();
-
-        }
-        result += "Средная площадь Прямоугольников: " + sredSquar + System.lineSeparator();
+        String result = "Right Kvadrats: " + this.list + System.lineSeparator();
+        result += "Средная площадь Прямоугольников: " + CalculatingSredSquar() + System.lineSeparator();
         return result;
     }
 }

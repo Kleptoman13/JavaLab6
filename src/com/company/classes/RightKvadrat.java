@@ -15,8 +15,6 @@ public class RightKvadrat {
     private int x2;
     private int y2;
 
-
-
     public RightKvadrat(int x1, int y1, int x2, int y2) {
         this.setX1(x1);
         this.setY1(y1);
@@ -32,9 +30,8 @@ public class RightKvadrat {
         this.setPerimetr();
     }
 
-    public void setAB()
-    {
-        AB = (int)Math.sqrt(Math.pow((getX1() - getX1()), 2) + Math.pow((getY2() - getY1()), 2));
+    public void setAB() {
+        AB = (int) Math.sqrt(Math.pow((getX1() - getX1()), 2) + Math.pow((getY2() - getY1()), 2));
         AB = AB > 0 ? AB : 1;
     }
 
@@ -42,9 +39,8 @@ public class RightKvadrat {
         return AB;
     }
 
-    public void setBC()
-    {
-        BC = (int)Math.sqrt(Math.pow((getX2() - getX1()), 2) + Math.pow((getY2() - getY2()), 2));
+    public void setBC() {
+        BC = (int) Math.sqrt(Math.pow((getX2() - getX1()), 2) + Math.pow((getY2() - getY2()), 2));
         BC = BC > 0 ? BC : 1;
     }
 
@@ -52,9 +48,8 @@ public class RightKvadrat {
         return BC;
     }
 
-    public void setCD()
-    {
-        CD = (int)Math.sqrt(Math.pow((getX2() - getX2()), 2) + Math.pow((getY2() - getY1()), 2));
+    public void setCD() {
+        CD = (int) Math.sqrt(Math.pow((getX2() - getX2()), 2) + Math.pow((getY2() - getY1()), 2));
         CD = CD > 0 ? CD : 1;
     }
 
@@ -62,9 +57,8 @@ public class RightKvadrat {
         return CD;
     }
 
-    public void setDA()
-    {
-        DA = (int)Math.sqrt(Math.pow((getX2() - getX1()), 2) + Math.pow((getY1() - getY1()), 2));
+    public void setDA() {
+        DA = (int) Math.sqrt(Math.pow((getX2() - getX1()), 2) + Math.pow((getY1() - getY1()), 2));
         DA = DA > 0 ? DA : 1;
     }
 
@@ -72,8 +66,7 @@ public class RightKvadrat {
         return DA;
     }
 
-    public void setDiag1()
-    {
+    public void setDiag1() {
         diag1 = Math.sqrt(Math.pow((getX2() - getX1()), 2) + Math.pow((getY2() - getY1()), 2));
     }
 
@@ -81,8 +74,7 @@ public class RightKvadrat {
         return diag1;
     }
 
-    public void setDiag2()
-    {
+    public void setDiag2() {
         diag2 = Math.sqrt(Math.pow((getX1() - getX2()), 2) + Math.pow((getY1() - getY2()), 2));
     }
 
@@ -91,12 +83,11 @@ public class RightKvadrat {
     }
 
     public void setSquar() {
-        squar = getAB()*getBC();
+        squar = getAB() * getBC();
     }
 
-    public void setPerimetr()
-    {
-        perimetr = getAB()+getBC()+getCD()+getDA();
+    public void setPerimetr() {
+        perimetr = getAB() + getBC() + getCD() + getDA();
     }
 
     public int getRightPerimetr() {
@@ -140,7 +131,6 @@ public class RightKvadrat {
     }
 
 
-
     @Override
     public String toString() {
         return "Right Kvadrat{" +
@@ -160,6 +150,6 @@ public class RightKvadrat {
                 ", Diagonal2=" + getRightDiag2() +
                 ", Perimetr=" + getRightPerimetr() +
                 ", Squar=" + getRightSquar() +
-                '}';
+                '}' + System.lineSeparator();
     }
 }

@@ -1,63 +1,56 @@
 package com.company.classes;
 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Kvadrats {
 
-    private Kvadrat[] kvadrats;
+    public ArrayList<Kvadrat> list;
     private double sredSquar;
 
-    public Kvadrats(final int kvadratsNumber)
+    public Kvadrats()
     {
-        this.kvadrats = new Kvadrat[kvadratsNumber];
-        addKvadrat();
-        CalculatingSredSquar(kvadratsNumber);
+        list = new ArrayList<>();
     }
 
-    public Kvadrat[] addKvadrat()
+    public void add(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)
     {
-
-        Random random = new Random();
-        for (int i = 0; i < kvadrats.length; i++) {
-            kvadrats[i] = new Kvadrat(random.nextInt(10)+1, random.nextInt(10)+1, random.nextInt(10)+1, random.nextInt(10)+1, random.nextInt(10)+1, random.nextInt(10)+1, random.nextInt(10)+1, random.nextInt(10)+1);
-        }
-        return kvadrats;
+        this.list.add(new Kvadrat(x1, y1, x2, y2, x3, y3, x4, y4));
     }
 
-    public void CalculatingSredSquar(final int kvadratsNumber)
+
+    public ArrayList getKvadrats()
+    {
+        return this.list;
+    }
+
+    public double CalculatingSredSquar()
     {
         double sum = 0;
-        for (Kvadrat kvadrat : kvadrats)
-        {
-            sum += kvadrat.getSquar();
+        for (int i = 0; i < list.size(); i++) {
+            sum += this.list.get(i).getSquar();
         }
-        sredSquar = sum / kvadratsNumber;
+        return sredSquar = sum / list.size();
     }
 
     public int CountOfKvadrats()
     {
         int count = 0;
-        for (Kvadrat kvadrat : kvadrats)
-        {
-            if (sredSquar > kvadrat.getSquar())
-            {
+        for (int i = 0; i < list.size(); i++) {
+
+            if (sredSquar > this.list.get(i).getSquar()) {
                 count++;
             }
         }
-
         return count;
     }
 
-
     public String toString() {
-        String result = "Kvadrats: " + System.lineSeparator();
-
-        for (Kvadrat kvadrat : kvadrats) {
-
-            result += kvadrat + System.lineSeparator();
-        }
-        result += "Средная площадь четыреугольников: " + sredSquar + System.lineSeparator();
-        result += "Количество четыреугольников, у которых площадь меньше средней площади четыреугольников: " + CountOfKvadrats();
+        String result = "Kvadrats: " + this.list + System.lineSeparator();
+        result += "Средная площадь четыреугольников: " + CalculatingSredSquar() + System.lineSeparator();
+        result += "Количество четыреугольников, у которых площадь меньше средней площади четыреугольников: " + CountOfKvadrats()+ System.lineSeparator();
         return result;
     }
 
